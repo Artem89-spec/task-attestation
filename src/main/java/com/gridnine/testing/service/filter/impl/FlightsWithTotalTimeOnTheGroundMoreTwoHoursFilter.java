@@ -28,7 +28,6 @@ public class FlightsWithTotalTimeOnTheGroundMoreTwoHoursFilter implements Flight
 
             long totalGroundTimeMinutes = 0;
             boolean hasNegativeGroundTime = false;
-            boolean exceedsTimeLimit = false;
 
             for (int i = 0; i < segments.size() - 1; i++) {
                 Segment currentSegment = segments.get(i);
@@ -45,14 +44,9 @@ public class FlightsWithTotalTimeOnTheGroundMoreTwoHoursFilter implements Flight
                 }
 
                 totalGroundTimeMinutes += groundTime.toMinutes();
-
-                if (totalGroundTimeMinutes > 120) {
-                    exceedsTimeLimit = true;
-                    break;
-                }
             }
 
-            if (!hasNegativeGroundTime && !exceedsTimeLimit) {
+            if (!hasNegativeGroundTime &&   totalGroundTimeMinutes <= 120) {
                 result.add(flight);
             }
         }

@@ -26,7 +26,8 @@ class MaxTransfersFilterTest {
         Flight twoTransfersFlight = new Flight(Arrays.asList(
                 new Segment(now.plusHours(1), now.plusHours(3)),
                 new Segment(now.plusHours(4), now.plusHours(6)),
-                new Segment(now.plusHours(7), now.plusHours(9))
+                new Segment(now.plusHours(7), now.plusHours(9)),
+                new Segment(now.plusHours(10), now.plusHours(12))
         ));
 
         List<Flight> flights = Arrays.asList(directFlight, oneTransferFlight, twoTransfersFlight);

@@ -24,7 +24,7 @@ public class MaxTransfersFilter implements FlightFilter {
 
         for (Flight flight : flights) {
             int transfers = flight.getSegments().size() - 1;
-            if (transfers < maxTransfers) {
+            if (transfers <= maxTransfers) {
                 result.add(flight);
             }
         }
